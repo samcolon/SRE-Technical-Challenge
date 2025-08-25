@@ -1,0 +1,12 @@
+# Force LF line endings for shell scripts
+*.sh text eol=lf
+
+# Force LF line endings for SSH keys
+*.pub text eol=lf
+
+# Force LF line endings for logs
+*.log text eol=lf
+
+# Ensure Terraform files always use LF
+*.tf text eol=lf
+*.tfvars text eol=lf
