@@ -1,0 +1,973 @@
+[0m[1mdata.aws_availability_zones.this: Reading...[0m[0m
+[0m[1mmodule.compute.data.aws_ami.al2023: Reading...[0m[0m
+[0m[1mdata.aws_availability_zones.this: Read complete after 1s [id=us-east-1][0m
+[0m[1mmodule.compute.data.aws_ami.al2023: Read complete after 1s [id=ami-0a19bcec6d2ec60fb][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.apploadbalancing.aws_lb.app[0m will be created
+[0m  [32m+[0m[0m resource "aws_lb" "app" {
+      [32m+[0m[0m arn                                                          = (known after apply)
+      [32m+[0m[0m arn_suffix                                                   = (known after apply)
+      [32m+[0m[0m client_keep_alive                                            = 3600
+      [32m+[0m[0m desync_mitigation_mode                                       = "defensive"
+      [32m+[0m[0m dns_name                                                     = (known after apply)
+      [32m+[0m[0m drop_invalid_header_fields                                   = false
+      [32m+[0m[0m enable_deletion_protection                                   = false
+      [32m+[0m[0m enable_http2                                                 = true
+      [32m+[0m[0m enable_tls_version_and_cipher_suite_headers                  = false
+      [32m+[0m[0m enable_waf_fail_open                                         = false
+      [32m+[0m[0m enable_xff_client_port                                       = false
+      [32m+[0m[0m enable_zonal_shift                                           = false
+      [32m+[0m[0m enforce_security_group_inbound_rules_on_private_link_traffic = (known after apply)
+      [32m+[0m[0m id                                                           = (known after apply)
+      [32m+[0m[0m idle_timeout                                                 = 60
+      [32m+[0m[0m internal                                                     = false
+      [32m+[0m[0m ip_address_type                                              = "ipv4"
+      [32m+[0m[0m load_balancer_type                                           = "application"
+      [32m+[0m[0m name                                                         = "coalfire-poc-alb"
+      [32m+[0m[0m name_prefix                                                  = (known after apply)
+      [32m+[0m[0m preserve_host_header                                         = false
+      [32m+[0m[0m security_groups                                              = (known after apply)
+      [32m+[0m[0m subnets                                                      = (known after apply)
+      [32m+[0m[0m tags                                                         = {
+          [32m+[0m[0m "Name" = "coalfire-poc-alb"
+        }
+      [32m+[0m[0m tags_all                                                     = {
+          [32m+[0m[0m "Name" = "coalfire-poc-alb"
+        }
+      [32m+[0m[0m vpc_id                                                       = (known after apply)
+      [32m+[0m[0m xff_header_processing_mode                                   = "append"
+      [32m+[0m[0m zone_id                                                      = (known after apply)
+    }
+
+[1m  # module.apploadbalancing.aws_lb_listener.http[0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_listener" "http" {
+      [32m+[0m[0m arn                                                                   = (known after apply)
+      [32m+[0m[0m id                                                                    = (known after apply)
+      [32m+[0m[0m load_balancer_arn                                                     = (known after apply)
+      [32m+[0m[0m port                                                                  = 80
+      [32m+[0m[0m protocol                                                              = "HTTP"
+      [32m+[0m[0m routing_http_request_x_amzn_mtls_clientcert_header_name               = (known after apply)
+      [32m+[0m[0m routing_http_request_x_amzn_mtls_clientcert_issuer_header_name        = (known after apply)
+      [32m+[0m[0m routing_http_request_x_amzn_mtls_clientcert_leaf_header_name          = (known after apply)
+      [32m+[0m[0m routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name = (known after apply)
+      [32m+[0m[0m routing_http_request_x_amzn_mtls_clientcert_subject_header_name       = (known after apply)
+      [32m+[0m[0m routing_http_request_x_amzn_mtls_clientcert_validity_header_name      = (known after apply)
+      [32m+[0m[0m routing_http_request_x_amzn_tls_cipher_suite_header_name              = (known after apply)
+      [32m+[0m[0m routing_http_request_x_amzn_tls_version_header_name                   = (known after apply)
+      [32m+[0m[0m routing_http_response_access_control_allow_credentials_header_value   = (known after apply)
+      [32m+[0m[0m routing_http_response_access_control_allow_headers_header_value       = (known after apply)
+      [32m+[0m[0m routing_http_response_access_control_allow_methods_header_value       = (known after apply)
+      [32m+[0m[0m routing_http_response_access_control_allow_origin_header_value        = (known after apply)
+      [32m+[0m[0m routing_http_response_access_control_expose_headers_header_value      = (known after apply)
+      [32m+[0m[0m routing_http_response_access_control_max_age_header_value             = (known after apply)
+      [32m+[0m[0m routing_http_response_content_security_policy_header_value            = (known after apply)
+      [32m+[0m[0m routing_http_response_server_enabled                                  = (known after apply)
+      [32m+[0m[0m routing_http_response_strict_transport_security_header_value          = (known after apply)
+      [32m+[0m[0m routing_http_response_x_content_type_options_header_value             = (known after apply)
+      [32m+[0m[0m routing_http_response_x_frame_options_header_value                    = (known after apply)
+      [32m+[0m[0m ssl_policy                                                            = (known after apply)
+      [32m+[0m[0m tags_all                                                              = (known after apply)
+      [32m+[0m[0m tcp_idle_timeout_seconds                                              = (known after apply)
+
+      [32m+[0m[0m default_action {
+          [32m+[0m[0m order            = (known after apply)
+          [32m+[0m[0m target_group_arn = (known after apply)
+          [32m+[0m[0m type             = "forward"
+        }
+    }
+
+[1m  # module.apploadbalancing.aws_lb_target_group.app[0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_target_group" "app" {
+      [32m+[0m[0m arn                                = (known after apply)
+      [32m+[0m[0m arn_suffix                         = (known after apply)
+      [32m+[0m[0m connection_termination             = (known after apply)
+      [32m+[0m[0m deregistration_delay               = "300"
+      [32m+[0m[0m id                                 = (known after apply)
+      [32m+[0m[0m ip_address_type                    = (known after apply)
+      [32m+[0m[0m lambda_multi_value_headers_enabled = false
+      [32m+[0m[0m load_balancer_arns                 = (known after apply)
+      [32m+[0m[0m load_balancing_algorithm_type      = (known after apply)
+      [32m+[0m[0m load_balancing_anomaly_mitigation  = (known after apply)
+      [32m+[0m[0m load_balancing_cross_zone_enabled  = (known after apply)
+      [32m+[0m[0m name                               = "coalfire-poc-tg"
+      [32m+[0m[0m name_prefix                        = (known after apply)
+      [32m+[0m[0m port                               = 80
+      [32m+[0m[0m preserve_client_ip                 = (known after apply)
+      [32m+[0m[0m protocol                           = "HTTP"
+      [32m+[0m[0m protocol_version                   = (known after apply)
+      [32m+[0m[0m proxy_protocol_v2                  = false
+      [32m+[0m[0m slow_start                         = 0
+      [32m+[0m[0m tags                               = {
+          [32m+[0m[0m "Name" = "coalfire-poc-tg"
+        }
+      [32m+[0m[0m tags_all                           = {
+          [32m+[0m[0m "Name" = "coalfire-poc-tg"
+        }
+      [32m+[0m[0m target_type                        = "instance"
+      [32m+[0m[0m vpc_id                             = (known after apply)
+
+      [32m+[0m[0m health_check {
+          [32m+[0m[0m enabled             = true
+          [32m+[0m[0m healthy_threshold   = 2
+          [32m+[0m[0m interval            = 30
+          [32m+[0m[0m matcher             = "200-399"
+          [32m+[0m[0m path                = "/"
+          [32m+[0m[0m port                = "traffic-port"
+          [32m+[0m[0m protocol            = "HTTP"
+          [32m+[0m[0m timeout             = 5
+          [32m+[0m[0m unhealthy_threshold = 3
+        }
+    }
+
+[1m  # module.apploadbalancing.aws_security_group.alb[0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "alb" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "ALB ingress 80 from internet"
+      [32m+[0m[0m egress                 = [
+          [32m+[0m[0m {
+              [32m+[0m[0m cidr_blocks      = [
+                  [32m+[0m[0m "0.0.0.0/0",
+                ]
+              [32m+[0m[0m description      = ""
+              [32m+[0m[0m from_port        = 0
+              [32m+[0m[0m ipv6_cidr_blocks = []
+              [32m+[0m[0m prefix_list_ids  = []
+              [32m+[0m[0m protocol         = "-1"
+              [32m+[0m[0m security_groups  = []
+              [32m+[0m[0m self             = false
+              [32m+[0m[0m to_port          = 0
+            },
+        ]
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = [
+          [32m+[0m[0m {
+              [32m+[0m[0m cidr_blocks      = [
+                  [32m+[0m[0m "0.0.0.0/0",
+                ]
+              [32m+[0m[0m description      = ""
+              [32m+[0m[0m from_port        = 80
+              [32m+[0m[0m ipv6_cidr_blocks = []
+              [32m+[0m[0m prefix_list_ids  = []
+              [32m+[0m[0m protocol         = "tcp"
+              [32m+[0m[0m security_groups  = []
+              [32m+[0m[0m self             = false
+              [32m+[0m[0m to_port          = 80
+            },
+        ]
+      [32m+[0m[0m name                   = "coalfire-poc-alb-sg"
+      [32m+[0m[0m name_prefix            = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name" = "coalfire-poc-alb-sg"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name" = "coalfire-poc-alb-sg"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+    }
+
+[1m  # module.compute.aws_autoscaling_group.app[0m will be created
+[0m  [32m+[0m[0m resource "aws_autoscaling_group" "app" {
+      [32m+[0m[0m arn                              = (known after apply)
+      [32m+[0m[0m availability_zones               = (known after apply)
+      [32m+[0m[0m default_cooldown                 = (known after apply)
+      [32m+[0m[0m desired_capacity                 = 2
+      [32m+[0m[0m force_delete                     = false
+      [32m+[0m[0m force_delete_warm_pool           = false
+      [32m+[0m[0m health_check_grace_period        = 90
+      [32m+[0m[0m health_check_type                = "ELB"
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m ignore_failed_scaling_activities = false
+      [32m+[0m[0m load_balancers                   = (known after apply)
+      [32m+[0m[0m max_size                         = 6
+      [32m+[0m[0m metrics_granularity              = "1Minute"
+      [32m+[0m[0m min_size                         = 2
+      [32m+[0m[0m name                             = "coalfire-poc-asg"
+      [32m+[0m[0m name_prefix                      = (known after apply)
+      [32m+[0m[0m predicted_capacity               = (known after apply)
+      [32m+[0m[0m protect_from_scale_in            = false
+      [32m+[0m[0m service_linked_role_arn          = (known after apply)
+      [32m+[0m[0m target_group_arns                = (known after apply)
+      [32m+[0m[0m vpc_zone_identifier              = (known after apply)
+      [32m+[0m[0m wait_for_capacity_timeout        = "10m"
+      [32m+[0m[0m warm_pool_size                   = (known after apply)
+
+      [32m+[0m[0m launch_template {
+          [32m+[0m[0m id      = (known after apply)
+          [32m+[0m[0m name    = (known after apply)
+          [32m+[0m[0m version = "$Latest"
+        }
+
+      [32m+[0m[0m tag {
+          [32m+[0m[0m key                 = "Name"
+          [32m+[0m[0m propagate_at_launch = true
+          [32m+[0m[0m value               = "coalfire-poc-app"
+        }
+    }
+
+[1m  # module.compute.aws_instance.mgmt[0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "mgmt" {
+      [32m+[0m[0m ami                                  = "ami-0a19bcec6d2ec60fb"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = true
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m enable_primary_ipv6                  = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t2.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = "coalfire-poc-mgmt"
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "coalfire-poc-mgmt"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "coalfire-poc-mgmt"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+    }
+
+[1m  # module.compute.aws_key_pair.mgmt[0m will be created
+[0m  [32m+[0m[0m resource "aws_key_pair" "mgmt" {
+      [32m+[0m[0m arn             = (known after apply)
+      [32m+[0m[0m fingerprint     = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m key_name        = "coalfire-poc-mgmt"
+      [32m+[0m[0m key_name_prefix = (known after apply)
+      [32m+[0m[0m key_pair_id     = (known after apply)
+      [32m+[0m[0m key_type        = (known after apply)
+      [32m+[0m[0m public_key      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCYqyWcm5qPN/WKB4RgwuwP5GCZt5wQYtyDvNs1muYBY8uHgun1zQqlukVTyx8MCnRzJ0/uVA5umGH8lnE+LYNZK6BeCSWqd121BXbu2FHPZnh52JEKHd7PW49Dx+S3ry8NndqkggpJkRvIASy4/zSoeN4lTcB0q41m7r6HNJ51xm3eidUWI7XIThZ6nUQjX22XAV7VGvICyZk1w2KA526OhUWz4YydQOCbQVmbBdfHSymDaS3eI/LTGASAEQt+x0f8M2H6r8sC20A4ueZDLiLaR/NIm9y9oJ0TMaxnqa3WflmX6zwvVS7g2m/0OuVYHIeB2q+lBVLpNSa/yP/cr+eXlhS/hBDC43SdAbyxH6qJI/SJrxEq3+m5R2W2lEhEuH8Rg/ssOC5gEqaJZ6iTHiK0sRYK8vPxqLWTxdfmst20qFZGPcOui9HEhOUDgITJFJM4cDFKYlUanbpG1YiTPSMweeuekYJazoihDOVGh2olwKaJu0Cuy0ikGIkMK1VZnTIN7g0dJKJw0/R8sU7P0DxZcNeJYFpyNtan9vTBWXtuJoRuCsWUMyPfw16IGxycYHWLNrcQxGHcSaX1RzlNS1FrcA1sGBDR9y7YrXPVMpFmrNc2Xkd7WVveSUDKJo5sZyyiTYAQADTEgDHV7UaS1sL8d/p6Y7TsfBnLF5UQGLR5hQ== Coalfire-SRE-POC"
+      [32m+[0m[0m tags_all        = (known after apply)
+    }
+
+[1m  # module.compute.aws_launch_template.app[0m will be created
+[0m  [32m+[0m[0m resource "aws_launch_template" "app" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m default_version        = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m image_id               = "ami-0a19bcec6d2ec60fb"
+      [32m+[0m[0m instance_type          = "t2.micro"
+      [32m+[0m[0m key_name               = "coalfire-poc-mgmt"
+      [32m+[0m[0m latest_version         = (known after apply)
+      [32m+[0m[0m name                   = (known after apply)
+      [32m+[0m[0m name_prefix            = "coalfire-poc-lt-"
+      [32m+[0m[0m tags_all               = (known after apply)
+      [32m+[0m[0m user_data              = "IyEvYmluL2Jhc2gKc2V0IC1ldXhvIHBpcGVmYWlsCgojIEZvciBBTDIwMjMKZG5mIC15IHVwZGF0ZSB8fCB0cnVlCmRuZiAteSBpbnN0YWxsIGh0dHBkCgpjYXQgPi92YXIvd3d3L2h0bWwvaW5kZXguaHRtbCA8PCdIVE1MJwo8IWRvY3R5cGUgaHRtbD4KPGh0bWw+PGhlYWQ+PHRpdGxlPlBPQzwvdGl0bGU+PC9oZWFkPgo8Ym9keT4KPGgxPkNvYWxmaXJlIFBPQyDigJQgQXBwIFRpZXI8L2gxPgo8L2JvZHk+PC9odG1sPgpIVE1MCgpzeXN0ZW1jdGwgZW5hYmxlIGh0dHBkCnN5c3RlbWN0bCBzdGFydCBodHRwZAo="
+      [32m+[0m[0m vpc_security_group_ids = (known after apply)
+
+      [32m+[0m[0m tag_specifications {
+          [32m+[0m[0m resource_type = "instance"
+          [32m+[0m[0m tags          = {
+              [32m+[0m[0m "Name" = "coalfire-poc-app"
+            }
+        }
+    }
+
+[1m  # module.compute.aws_security_group.app[0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "app" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "App instances"
+      [32m+[0m[0m egress                 = [
+          [32m+[0m[0m {
+              [32m+[0m[0m cidr_blocks      = [
+                  [32m+[0m[0m "0.0.0.0/0",
+                ]
+              [32m+[0m[0m description      = ""
+              [32m+[0m[0m from_port        = 0
+              [32m+[0m[0m ipv6_cidr_blocks = []
+              [32m+[0m[0m prefix_list_ids  = []
+              [32m+[0m[0m protocol         = "-1"
+              [32m+[0m[0m security_groups  = []
+              [32m+[0m[0m self             = false
+              [32m+[0m[0m to_port          = 0
+            },
+        ]
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = "coalfire-poc-app-sg"
+      [32m+[0m[0m name_prefix            = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name" = "coalfire-poc-app-sg"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name" = "coalfire-poc-app-sg"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+    }
+
+[1m  # module.compute.aws_security_group.mgmt[0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "mgmt" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "SSH bastion access"
+      [32m+[0m[0m egress                 = [
+          [32m+[0m[0m {
+              [32m+[0m[0m cidr_blocks      = [
+                  [32m+[0m[0m "0.0.0.0/0",
+                ]
+              [32m+[0m[0m description      = ""
+              [32m+[0m[0m from_port        = 0
+              [32m+[0m[0m ipv6_cidr_blocks = []
+              [32m+[0m[0m prefix_list_ids  = []
+              [32m+[0m[0m protocol         = "-1"
+              [32m+[0m[0m security_groups  = []
+              [32m+[0m[0m self             = false
+              [32m+[0m[0m to_port          = 0
+            },
+        ]
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = [
+          [32m+[0m[0m {
+              [32m+[0m[0m cidr_blocks      = [
+                  [32m+[0m[0m "68.205.42.59/32",
+                ]
+              [32m+[0m[0m description      = "SSH from operator IP"
+              [32m+[0m[0m from_port        = 22
+              [32m+[0m[0m ipv6_cidr_blocks = []
+              [32m+[0m[0m prefix_list_ids  = []
+              [32m+[0m[0m protocol         = "tcp"
+              [32m+[0m[0m security_groups  = []
+              [32m+[0m[0m self             = false
+              [32m+[0m[0m to_port          = 22
+            },
+        ]
+      [32m+[0m[0m name                   = "coalfire-poc-mgmt-sg"
+      [32m+[0m[0m name_prefix            = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name" = "coalfire-poc-mgmt-sg"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name" = "coalfire-poc-mgmt-sg"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+    }
+
+[1m  # module.compute.aws_vpc_security_group_ingress_rule.app_http_from_alb[0m will be created
+[0m  [32m+[0m[0m resource "aws_vpc_security_group_ingress_rule" "app_http_from_alb" {
+      [32m+[0m[0m arn                          = (known after apply)
+      [32m+[0m[0m description                  = "HTTP from ALB"
+      [32m+[0m[0m from_port                    = 80
+      [32m+[0m[0m id                           = (known after apply)
+      [32m+[0m[0m ip_protocol                  = "tcp"
+      [32m+[0m[0m referenced_security_group_id = (known after apply)
+      [32m+[0m[0m security_group_id            = (known after apply)
+      [32m+[0m[0m security_group_rule_id       = (known after apply)
+      [32m+[0m[0m tags_all                     = {}
+      [32m+[0m[0m to_port                      = 80
+    }
+
+[1m  # module.compute.aws_vpc_security_group_ingress_rule.app_ssh_from_mgmt[0m will be created
+[0m  [32m+[0m[0m resource "aws_vpc_security_group_ingress_rule" "app_ssh_from_mgmt" {
+      [32m+[0m[0m arn                          = (known after apply)
+      [32m+[0m[0m description                  = "SSH from management"
+      [32m+[0m[0m from_port                    = 22
+      [32m+[0m[0m id                           = (known after apply)
+      [32m+[0m[0m ip_protocol                  = "tcp"
+      [32m+[0m[0m referenced_security_group_id = (known after apply)
+      [32m+[0m[0m security_group_id            = (known after apply)
+      [32m+[0m[0m security_group_rule_id       = (known after apply)
+      [32m+[0m[0m tags_all                     = {}
+      [32m+[0m[0m to_port                      = 22
+    }
+
+[1m  # module.networking.aws_eip.nat[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_eip" "nat" {
+      [32m+[0m[0m allocation_id        = (known after apply)
+      [32m+[0m[0m arn                  = (known after apply)
+      [32m+[0m[0m association_id       = (known after apply)
+      [32m+[0m[0m carrier_ip           = (known after apply)
+      [32m+[0m[0m customer_owned_ip    = (known after apply)
+      [32m+[0m[0m domain               = "vpc"
+      [32m+[0m[0m id                   = (known after apply)
+      [32m+[0m[0m instance             = (known after apply)
+      [32m+[0m[0m ipam_pool_id         = (known after apply)
+      [32m+[0m[0m network_border_group = (known after apply)
+      [32m+[0m[0m network_interface    = (known after apply)
+      [32m+[0m[0m private_dns          = (known after apply)
+      [32m+[0m[0m private_ip           = (known after apply)
+      [32m+[0m[0m ptr_record           = (known after apply)
+      [32m+[0m[0m public_dns           = (known after apply)
+      [32m+[0m[0m public_ip            = (known after apply)
+      [32m+[0m[0m public_ipv4_pool     = (known after apply)
+      [32m+[0m[0m tags                 = {
+          [32m+[0m[0m "Name" = "coalfire-poc-nat-eip-0"
+        }
+      [32m+[0m[0m tags_all             = {
+          [32m+[0m[0m "Name" = "coalfire-poc-nat-eip-0"
+        }
+      [32m+[0m[0m vpc                  = (known after apply)
+    }
+
+[1m  # module.networking.aws_eip.nat[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_eip" "nat" {
+      [32m+[0m[0m allocation_id        = (known after apply)
+      [32m+[0m[0m arn                  = (known after apply)
+      [32m+[0m[0m association_id       = (known after apply)
+      [32m+[0m[0m carrier_ip           = (known after apply)
+      [32m+[0m[0m customer_owned_ip    = (known after apply)
+      [32m+[0m[0m domain               = "vpc"
+      [32m+[0m[0m id                   = (known after apply)
+      [32m+[0m[0m instance             = (known after apply)
+      [32m+[0m[0m ipam_pool_id         = (known after apply)
+      [32m+[0m[0m network_border_group = (known after apply)
+      [32m+[0m[0m network_interface    = (known after apply)
+      [32m+[0m[0m private_dns          = (known after apply)
+      [32m+[0m[0m private_ip           = (known after apply)
+      [32m+[0m[0m ptr_record           = (known after apply)
+      [32m+[0m[0m public_dns           = (known after apply)
+      [32m+[0m[0m public_ip            = (known after apply)
+      [32m+[0m[0m public_ipv4_pool     = (known after apply)
+      [32m+[0m[0m tags                 = {
+          [32m+[0m[0m "Name" = "coalfire-poc-nat-eip-1"
+        }
+      [32m+[0m[0m tags_all             = {
+          [32m+[0m[0m "Name" = "coalfire-poc-nat-eip-1"
+        }
+      [32m+[0m[0m vpc                  = (known after apply)
+    }
+
+[1m  # module.networking.aws_internet_gateway.this[0m will be created
+[0m  [32m+[0m[0m resource "aws_internet_gateway" "this" {
+      [32m+[0m[0m arn      = (known after apply)
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m owner_id = (known after apply)
+      [32m+[0m[0m tags     = {
+          [32m+[0m[0m "Name" = "coalfire-poc-igw"
+        }
+      [32m+[0m[0m tags_all = {
+          [32m+[0m[0m "Name" = "coalfire-poc-igw"
+        }
+      [32m+[0m[0m vpc_id   = (known after apply)
+    }
+
+[1m  # module.networking.aws_nat_gateway.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_nat_gateway" "this" {
+      [32m+[0m[0m allocation_id                      = (known after apply)
+      [32m+[0m[0m association_id                     = (known after apply)
+      [32m+[0m[0m connectivity_type                  = "public"
+      [32m+[0m[0m id                                 = (known after apply)
+      [32m+[0m[0m network_interface_id               = (known after apply)
+      [32m+[0m[0m private_ip                         = (known after apply)
+      [32m+[0m[0m public_ip                          = (known after apply)
+      [32m+[0m[0m secondary_private_ip_address_count = (known after apply)
+      [32m+[0m[0m secondary_private_ip_addresses     = (known after apply)
+      [32m+[0m[0m subnet_id                          = (known after apply)
+      [32m+[0m[0m tags                               = {
+          [32m+[0m[0m "Name" = "coalfire-poc-nat-0"
+        }
+      [32m+[0m[0m tags_all                           = {
+          [32m+[0m[0m "Name" = "coalfire-poc-nat-0"
+        }
+    }
+
+[1m  # module.networking.aws_nat_gateway.this[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_nat_gateway" "this" {
+      [32m+[0m[0m allocation_id                      = (known after apply)
+      [32m+[0m[0m association_id                     = (known after apply)
+      [32m+[0m[0m connectivity_type                  = "public"
+      [32m+[0m[0m id                                 = (known after apply)
+      [32m+[0m[0m network_interface_id               = (known after apply)
+      [32m+[0m[0m private_ip                         = (known after apply)
+      [32m+[0m[0m public_ip                          = (known after apply)
+      [32m+[0m[0m secondary_private_ip_address_count = (known after apply)
+      [32m+[0m[0m secondary_private_ip_addresses     = (known after apply)
+      [32m+[0m[0m subnet_id                          = (known after apply)
+      [32m+[0m[0m tags                               = {
+          [32m+[0m[0m "Name" = "coalfire-poc-nat-1"
+        }
+      [32m+[0m[0m tags_all                           = {
+          [32m+[0m[0m "Name" = "coalfire-poc-nat-1"
+        }
+    }
+
+[1m  # module.networking.aws_route_table.private[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table" "private" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m owner_id         = (known after apply)
+      [32m+[0m[0m propagating_vgws = (known after apply)
+      [32m+[0m[0m route            = [
+          [32m+[0m[0m {
+              [32m+[0m[0m carrier_gateway_id         = ""
+              [32m+[0m[0m cidr_block                 = "0.0.0.0/0"
+              [32m+[0m[0m core_network_arn           = ""
+              [32m+[0m[0m destination_prefix_list_id = ""
+              [32m+[0m[0m egress_only_gateway_id     = ""
+              [32m+[0m[0m gateway_id                 = ""
+              [32m+[0m[0m ipv6_cidr_block            = ""
+              [32m+[0m[0m local_gateway_id           = ""
+              [32m+[0m[0m nat_gateway_id             = (known after apply)
+              [32m+[0m[0m network_interface_id       = ""
+              [32m+[0m[0m transit_gateway_id         = ""
+              [32m+[0m[0m vpc_endpoint_id            = ""
+              [32m+[0m[0m vpc_peering_connection_id  = ""
+            },
+        ]
+      [32m+[0m[0m tags             = {
+          [32m+[0m[0m "Name" = "coalfire-poc-private-rt-0"
+        }
+      [32m+[0m[0m tags_all         = {
+          [32m+[0m[0m "Name" = "coalfire-poc-private-rt-0"
+        }
+      [32m+[0m[0m vpc_id           = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table.private[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table" "private" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m owner_id         = (known after apply)
+      [32m+[0m[0m propagating_vgws = (known after apply)
+      [32m+[0m[0m route            = [
+          [32m+[0m[0m {
+              [32m+[0m[0m carrier_gateway_id         = ""
+              [32m+[0m[0m cidr_block                 = "0.0.0.0/0"
+              [32m+[0m[0m core_network_arn           = ""
+              [32m+[0m[0m destination_prefix_list_id = ""
+              [32m+[0m[0m egress_only_gateway_id     = ""
+              [32m+[0m[0m gateway_id                 = ""
+              [32m+[0m[0m ipv6_cidr_block            = ""
+              [32m+[0m[0m local_gateway_id           = ""
+              [32m+[0m[0m nat_gateway_id             = (known after apply)
+              [32m+[0m[0m network_interface_id       = ""
+              [32m+[0m[0m transit_gateway_id         = ""
+              [32m+[0m[0m vpc_endpoint_id            = ""
+              [32m+[0m[0m vpc_peering_connection_id  = ""
+            },
+        ]
+      [32m+[0m[0m tags             = {
+          [32m+[0m[0m "Name" = "coalfire-poc-private-rt-1"
+        }
+      [32m+[0m[0m tags_all         = {
+          [32m+[0m[0m "Name" = "coalfire-poc-private-rt-1"
+        }
+      [32m+[0m[0m vpc_id           = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table.public[0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table" "public" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m owner_id         = (known after apply)
+      [32m+[0m[0m propagating_vgws = (known after apply)
+      [32m+[0m[0m route            = [
+          [32m+[0m[0m {
+              [32m+[0m[0m carrier_gateway_id         = ""
+              [32m+[0m[0m cidr_block                 = "0.0.0.0/0"
+              [32m+[0m[0m core_network_arn           = ""
+              [32m+[0m[0m destination_prefix_list_id = ""
+              [32m+[0m[0m egress_only_gateway_id     = ""
+              [32m+[0m[0m gateway_id                 = (known after apply)
+              [32m+[0m[0m ipv6_cidr_block            = ""
+              [32m+[0m[0m local_gateway_id           = ""
+              [32m+[0m[0m nat_gateway_id             = ""
+              [32m+[0m[0m network_interface_id       = ""
+              [32m+[0m[0m transit_gateway_id         = ""
+              [32m+[0m[0m vpc_endpoint_id            = ""
+              [32m+[0m[0m vpc_peering_connection_id  = ""
+            },
+        ]
+      [32m+[0m[0m tags             = {
+          [32m+[0m[0m "Name" = "coalfire-poc-public-rt"
+        }
+      [32m+[0m[0m tags_all         = {
+          [32m+[0m[0m "Name" = "coalfire-poc-public-rt"
+        }
+      [32m+[0m[0m vpc_id           = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table_association.app_private[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "app_private" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table_association.app_private[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "app_private" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table_association.backend_private[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "backend_private" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table_association.backend_private[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "backend_private" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table_association.public_mgmt[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public_mgmt" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.networking.aws_route_table_association.public_mgmt[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public_mgmt" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.networking.aws_subnet.app[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "app" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1a"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.1.10.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name" = "coalfire-poc-app-0"
+          [32m+[0m[0m "Tier" = "application"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name" = "coalfire-poc-app-0"
+          [32m+[0m[0m "Tier" = "application"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.networking.aws_subnet.app[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "app" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1b"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.1.11.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name" = "coalfire-poc-app-1"
+          [32m+[0m[0m "Tier" = "application"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name" = "coalfire-poc-app-1"
+          [32m+[0m[0m "Tier" = "application"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.networking.aws_subnet.backend[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "backend" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1a"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.1.20.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name" = "coalfire-poc-backend-0"
+          [32m+[0m[0m "Tier" = "backend"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name" = "coalfire-poc-backend-0"
+          [32m+[0m[0m "Tier" = "backend"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.networking.aws_subnet.backend[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "backend" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1b"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.1.21.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name" = "coalfire-poc-backend-1"
+          [32m+[0m[0m "Tier" = "backend"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name" = "coalfire-poc-backend-1"
+          [32m+[0m[0m "Tier" = "backend"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.networking.aws_subnet.mgmt[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "mgmt" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1a"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.1.0.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = true
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name" = "coalfire-poc-mgmt-0"
+          [32m+[0m[0m "Tier" = "management"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name" = "coalfire-poc-mgmt-0"
+          [32m+[0m[0m "Tier" = "management"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.networking.aws_subnet.mgmt[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "mgmt" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1b"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.1.1.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = true
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name" = "coalfire-poc-mgmt-1"
+          [32m+[0m[0m "Tier" = "management"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name" = "coalfire-poc-mgmt-1"
+          [32m+[0m[0m "Tier" = "management"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.networking.aws_vpc.this[0m will be created
+[0m  [32m+[0m[0m resource "aws_vpc" "this" {
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m assign_generated_ipv6_cidr_block     = false
+      [32m+[0m[0m cidr_block                           = "10.1.0.0/16"
+      [32m+[0m[0m default_network_acl_id               = (known after apply)
+      [32m+[0m[0m default_route_table_id               = (known after apply)
+      [32m+[0m[0m default_security_group_id            = (known after apply)
+      [32m+[0m[0m dhcp_options_id                      = (known after apply)
+      [32m+[0m[0m enable_dns_hostnames                 = true
+      [32m+[0m[0m enable_dns_support                   = true
+      [32m+[0m[0m enable_network_address_usage_metrics = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_tenancy                     = "default"
+      [32m+[0m[0m ipv6_association_id                  = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block                      = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_network_border_group = (known after apply)
+      [32m+[0m[0m main_route_table_id                  = (known after apply)
+      [32m+[0m[0m owner_id                             = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name" = "coalfire-poc-vpc"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name" = "coalfire-poc-vpc"
+        }
+    }
+
+[1mPlan:[0m 33 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m alb_dns_name         = (known after apply)
+  [32m+[0m[0m management_public_ip = (known after apply)
+[0m[1mmodule.compute.aws_key_pair.mgmt: Creating...[0m[0m
+[0m[1mmodule.networking.aws_vpc.this: Creating...[0m[0m
+[0m[1mmodule.networking.aws_eip.nat[1]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_eip.nat[0]: Creating...[0m[0m
+[0m[1mmodule.compute.aws_key_pair.mgmt: Creation complete after 1s [id=coalfire-poc-mgmt][0m
+[0m[1mmodule.networking.aws_eip.nat[1]: Creation complete after 1s [id=eipalloc-0c80e3d92cc86527d][0m
+[0m[1mmodule.networking.aws_eip.nat[0]: Creation complete after 1s [id=eipalloc-0ccad641f1d46681d][0m
+[0m[1mmodule.networking.aws_vpc.this: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.networking.aws_vpc.this: Creation complete after 13s [id=vpc-04ea30d8a559b2672][0m
+[0m[1mmodule.networking.aws_subnet.backend[0]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_subnet.mgmt[1]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_subnet.app[1]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_internet_gateway.this: Creating...[0m[0m
+[0m[1mmodule.networking.aws_subnet.app[0]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_subnet.backend[1]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_subnet.mgmt[0]: Creating...[0m[0m
+[0m[1mmodule.apploadbalancing.aws_security_group.alb: Creating...[0m[0m
+[0m[1mmodule.compute.aws_security_group.mgmt: Creating...[0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb_target_group.app: Creating...[0m[0m
+[0m[1mmodule.networking.aws_internet_gateway.this: Creation complete after 1s [id=igw-07ffb9a382c921658][0m
+[0m[1mmodule.compute.aws_security_group.app: Creating...[0m[0m
+[0m[1mmodule.networking.aws_subnet.app[0]: Creation complete after 1s [id=subnet-0c6f4a460e59eed3a][0m
+[0m[1mmodule.networking.aws_subnet.backend[1]: Creation complete after 1s [id=subnet-034ef20af82108c30][0m
+[0m[1mmodule.networking.aws_route_table.public: Creating...[0m[0m
+[0m[1mmodule.networking.aws_subnet.backend[0]: Creation complete after 1s [id=subnet-0213499fcd2ff2ddc][0m
+[0m[1mmodule.apploadbalancing.aws_lb_target_group.app: Creation complete after 1s [id=arn:aws:elasticloadbalancing:us-east-1:087074250104:targetgroup/coalfire-poc-tg/bfe959bc2ca3dc92][0m
+[0m[1mmodule.networking.aws_route_table.public: Creation complete after 1s [id=rtb-02460c67ae75459bb][0m
+[0m[1mmodule.apploadbalancing.aws_security_group.alb: Creation complete after 3s [id=sg-0f9d9da5fdea11817][0m
+[0m[1mmodule.compute.aws_security_group.mgmt: Creation complete after 3s [id=sg-0b8404b70efb384fd][0m
+[0m[1mmodule.compute.aws_security_group.app: Creation complete after 2s [id=sg-0a91354c0f6e63a5f][0m
+[0m[1mmodule.compute.aws_launch_template.app: Creating...[0m[0m
+[0m[1mmodule.compute.aws_vpc_security_group_ingress_rule.app_http_from_alb: Creating...[0m[0m
+[0m[1mmodule.compute.aws_vpc_security_group_ingress_rule.app_ssh_from_mgmt: Creating...[0m[0m
+[0m[1mmodule.compute.aws_vpc_security_group_ingress_rule.app_ssh_from_mgmt: Creation complete after 1s [id=sgr-02042c16eeee85e74][0m
+[0m[1mmodule.compute.aws_vpc_security_group_ingress_rule.app_http_from_alb: Creation complete after 1s [id=sgr-0fb28bae3ef488027][0m
+[0m[1mmodule.networking.aws_subnet.app[1]: Creation complete after 4s [id=subnet-045954010f58fa67b][0m
+[0m[1mmodule.compute.aws_launch_template.app: Creation complete after 6s [id=lt-0d245674c177ae7fd][0m
+[0m[1mmodule.compute.aws_autoscaling_group.app: Creating...[0m[0m
+[0m[1mmodule.networking.aws_subnet.mgmt[1]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.networking.aws_subnet.mgmt[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.networking.aws_subnet.mgmt[0]: Creation complete after 11s [id=subnet-068598733d68aa2da][0m
+[0m[1mmodule.networking.aws_subnet.mgmt[1]: Creation complete after 11s [id=subnet-081053a09a93822f8][0m
+[0m[1mmodule.networking.aws_route_table_association.public_mgmt[0]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_route_table_association.public_mgmt[1]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Creating...[0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Creating...[0m[0m
+[0m[1mmodule.compute.aws_instance.mgmt: Creating...[0m[0m
+[0m[1mmodule.networking.aws_route_table_association.public_mgmt[0]: Creation complete after 1s [id=rtbassoc-03b0386e5d05bc2ea][0m
+[0m[1mmodule.networking.aws_route_table_association.public_mgmt[1]: Creation complete after 1s [id=rtbassoc-0da21f9284c6da4d4][0m
+[0m[1mmodule.compute.aws_autoscaling_group.app: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.compute.aws_instance.mgmt: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.compute.aws_instance.mgmt: Creation complete after 14s [id=i-0a9fc6c1f38ccc788][0m
+[0m[1mmodule.compute.aws_autoscaling_group.app: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.compute.aws_autoscaling_group.app: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.compute.aws_autoscaling_group.app: Creation complete after 38s [id=coalfire-poc-asg][0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [1m20s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [1m30s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [1m40s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Still creating... [1m40s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [1m40s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[0]: Creation complete after 1m45s [id=nat-0b865272cdd70c1a0][0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Still creating... [1m50s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [1m50s elapsed][0m[0m
+[0m[1mmodule.networking.aws_nat_gateway.this[1]: Creation complete after 1m55s [id=nat-051a64fe1bdf653c8][0m
+[0m[1mmodule.networking.aws_route_table.private[0]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_route_table.private[1]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_route_table.private[0]: Creation complete after 1s [id=rtb-0286f0c109d59b218][0m
+[0m[1mmodule.networking.aws_route_table.private[1]: Creation complete after 1s [id=rtb-015d8adf2cdc5c9e5][0m
+[0m[1mmodule.networking.aws_route_table_association.backend_private[1]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_route_table_association.app_private[0]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_route_table_association.app_private[1]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_route_table_association.backend_private[0]: Creating...[0m[0m
+[0m[1mmodule.networking.aws_route_table_association.app_private[0]: Creation complete after 1s [id=rtbassoc-01b970b0041e9f7d8][0m
+[0m[1mmodule.networking.aws_route_table_association.backend_private[1]: Creation complete after 1s [id=rtbassoc-01c13918a8ddd5721][0m
+[0m[1mmodule.networking.aws_route_table_association.app_private[1]: Creation complete after 1s [id=rtbassoc-09079d64669de7542][0m
+[0m[1mmodule.networking.aws_route_table_association.backend_private[0]: Creation complete after 1s [id=rtbassoc-032e894d09848293f][0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [2m0s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [2m10s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [2m20s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [2m30s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [2m40s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [2m50s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Still creating... [3m0s elapsed][0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb.app: Creation complete after 3m3s [id=arn:aws:elasticloadbalancing:us-east-1:087074250104:loadbalancer/app/coalfire-poc-alb/b596d67ae6a94a91][0m
+[0m[1mmodule.apploadbalancing.aws_lb_listener.http: Creating...[0m[0m
+[0m[1mmodule.apploadbalancing.aws_lb_listener.http: Creation complete after 1s [id=arn:aws:elasticloadbalancing:us-east-1:087074250104:listener/app/coalfire-poc-alb/b596d67ae6a94a91/8fdb2f63bcfc7899][0m
+[0m[1m[32m
+Apply complete! Resources: 33 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0malb_dns_name = "coalfire-poc-alb-279150681.us-east-1.elb.amazonaws.com"
+management_public_ip = "98.80.15.191"
